@@ -47,6 +47,31 @@ public class GamePlay {
             drawPile.add(c);
         }
 
+        // game starts now
+
+        int playerTurn = 0;
+
+        while(true){
+
+              if(drawPile.size() == 0){
+
+                  System.out.println("Game Drawn !! ..... Cards Ended !!");
+                  return;
+              }
+
+              playerTurn %= numOfPlayers;
+
+
+            if(players.get(playerTurn).giveCards().size() == 0){
+                System.out.println("Player with player id : " + players.get(playerTurn).giveId() +" won the match.");
+                return ;
+            }
+
+            playerTurn += 1;
+
+        }
+
+
 
 
     }
