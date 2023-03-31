@@ -15,7 +15,7 @@ public class GamePlay {
 
 
     public void playGame() throws Exception{
-
+        System.out.println("Enter the number of players : ");
         Scanner sc = new Scanner(System.in);
         int numOfPlayers = sc.nextInt();
 
@@ -51,24 +51,43 @@ public class GamePlay {
 
         int playerTurn = 0;
 
-        while(true){
+        while (true) {
+            if (drawPile.size() == 0) {
+                System.out.println("Game drawn !! ... No cards left");
+                break;
+            }
+            playerTurn %= numOfPlayers;
+            if (playerTurn < 0) playerTurn += numOfPlayers;
+            playerTurn %= numOfPlayers;
 
-              if(drawPile.size() == 0){
+            // current player will atleast have 1 card ... it is guranteed
 
-                  System.out.println("Game Drawn !! ..... Cards Ended !!");
-                  return;
-              }
+            boolean matched = false;
+            Card topDiscardCard = discardPile.get(discardPile.size() - 1);
+            for (Card currentPlayerCard : players.get(playerTurn).giveCards()) {
+                if (currentPlayerCard.getNumber() == topDiscardCard.getNumber() || currentPlayerCard.getSuit() == topDiscardCard.getSuit()) {
+                    System.out.println("Cards matched for player " + players.get(playerTurn).giveId() + " Card = " + currentPlayerCard);
+                    System.out.println(discardPile.get(discardPile.size() - 1));
+                    players.get(playerTurn).removeCard(currentPlayerCard);
+                    discardPile.add(currentPlayerCard);
+                    matched = true;
+                    break;
+                }
+            }
 
-              playerTurn %= numOfPlayers;
+            if (matched == false) {
+                System.out.println("No cards match for player " + players.get(playerTurn).giveId() + " Taking topmost card " + drawPile.get(drawPile.size() - 1));
+                System.out.println(discardPile.get(discardPile.size() - 1));
+                players.get(playerTurn).addCard(drawPile.get(drawPile.size() - 1));
+                drawPile.remove(drawPile.size() - 1);
+            }
 
-
-            if(players.get(playerTurn).giveCards().size() == 0){
-                System.out.println("Player with player id : " + players.get(playerTurn).giveId() +" won the match.");
-                return ;
+            if (matched == true && players.get(playerTurn).giveCards().size() == 0) {
+                System.out.println("Congratulations player " + players.get(playerTurn).giveId() + " won the match !!!");
+                System.exit(0);
             }
 
             playerTurn += 1;
-
         }
 
 
