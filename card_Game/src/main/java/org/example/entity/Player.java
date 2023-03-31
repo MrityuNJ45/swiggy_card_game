@@ -10,7 +10,7 @@ public class Player {
     private ArrayList<Card> cards = new ArrayList<>();
 
     // Player constructor with passing as his id in parameter.
-    Player(int id)
+    public Player(int id)
     {
         this.id = id;
     }

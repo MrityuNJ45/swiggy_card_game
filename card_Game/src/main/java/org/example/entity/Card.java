@@ -26,7 +26,7 @@ public class Card {
 
     }
 
-    Card(int num, Suits s) {
+    public Card(int num, Suits s) {
         number = num;
         suit = s;
     }
