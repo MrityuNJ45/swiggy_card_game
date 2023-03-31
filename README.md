@@ -39,10 +39,10 @@ Runs on any kind of Environment which supports Java 1.8 or above.
 Thank you!
 ## Screenshots
 
-![Screenshot1](screenshots/screenshot1.png | width=150)
+![Screenshot1](screenshots/screenshot1.png)
 
 
-![Screenshot2](screenshots/screenshot2.png | width=150)
+![Screenshot2](screenshots/screenshot2.png)
 ## Author
 
 - [Mrityunjay Sarkar](https://github.com/MrityuNJ45)
