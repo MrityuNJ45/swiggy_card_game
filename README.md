@@ -1,5 +1,5 @@
 
-# Problem Statment.
+# Problem Statement.
 
 Design a multiplayer card game that supports multiple players (up to 4) and different types of cards (e.g. number cards, action cards, etc.). The game should follow the following rules:
 
