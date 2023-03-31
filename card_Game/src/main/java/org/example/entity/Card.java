@@ -1,18 +1,37 @@
 package org.example.entity;
 
-import org.example.enums.Suits;
+
 
 public class Card {
 
-    int number;
+    private int number;
+    private Suits suit;
 
-    Suits suit;
-
-    public Card() {
+    public void setNumber(int number) {
+        this.number = number;
     }
 
-    public Card(int number, Suits suit) {
-        this.number = number;
+    public void setSuit(Suits suit) {
         this.suit = suit;
     }
+
+    public int getNumber() {
+        return number;
+    }
+    public Suits getSuit() {
+        return suit;
+    }
+
+    Card(){
+
+    }
+
+    Card(int num, Suits s) {
+        number = num;
+        suit = s;
+    }
+    public String toString() {
+        return number + " " + suit;
+    }
+
 }
